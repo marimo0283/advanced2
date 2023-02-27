@@ -22,6 +22,15 @@
   </tbody>
 </table>
 
-
-<h2>New book</h2>
 <%= render 'form', book: @book %>
+<%= form_with model:@book, local:true do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit 'Create Book' %>
+<% end %>
